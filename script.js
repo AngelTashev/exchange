@@ -8,7 +8,7 @@ const sellBtn = document.getElementById('sellBtn');
 const inputValue = document.getElementById('inputValue');
 const resultField = document.getElementById('resultField');
 const currencyValue = document.getElementById('currencyValue');
-// const refreshBtn = document.getElementById('refresh-btn');
+const refreshBtn = document.getElementById('refresh-btn');
 
 // 0 - BTC/EUR, 1 - ETH/EUR, 2 - BCH/EUR
 // 3 - BTC/USD, 4 - ETH/USD, 5 - BCH/USD
@@ -21,6 +21,7 @@ async function displayInfo() {
 
 
     currencyContainer.innerHTML = generateHTML();
+    attachRefreshListener();
     // getTime();
 
 }
@@ -70,11 +71,14 @@ function createTable(currEUR, currUSD, currency) {
     return table;
 }
 
+function attachRefreshListener() {
+    refreshBtn.addEventListener('click', e => {
+        e.preventDefault();
+        displayInfo();
+    });
+}
+
 function attachListeners() {
-    // refreshBtn.addEventListener('click', e => {
-    //     e.preventDefault();
-    //     // displayInfo();
-    // });
 
     buyBtn.addEventListener('click', e => {
         e.preventDefault();
