@@ -20,7 +20,7 @@ async function displayInfo() {
 
 
     currencyContainer.innerHTML = generateHTML();
-    getTime();
+    // getTime();
 
 }
 
@@ -99,12 +99,12 @@ function calculate(operation) {
     return result;
 }
 
-async function getTime() {
-    let timeResult = {};
-    await fetch(time)
-        .then(res => res.json())
-        .then(data => timeResult = data);
-    console.log(JSON.stringify(timeResult.result.rfc1123));
-}
+// async function getTime() {
+//     let timeResult = {};
+//     await fetch(time)
+//         .then(res => res.json())
+//         .then(data => timeResult = data);
+//     console.log(JSON.stringify(timeResult.result.rfc1123));
+// }
 
 displayInfo();
