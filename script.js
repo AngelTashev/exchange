@@ -43,8 +43,6 @@ async function loadData() {
 
 function generateHTML() {
 
-    let html = '<h3>Last refresh Sofia: 2021-01-13 01:10:30</h3>'; // TODO
-
     html += createTable(exchanges.XXBTZEUR, exchanges.XXBTZUSD, 'BTC');
     html += createTable(exchanges.XETHZEUR, exchanges.XETHZUSD, 'ETH');
     html += createTable(exchanges.XETHZEUR, exchanges.XETHZUSD, 'BCH');
