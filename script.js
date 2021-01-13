@@ -9,6 +9,7 @@ const inputValue = document.getElementById('inputValue');
 const resultField = document.getElementById('resultField');
 const currencyValue = document.getElementById('currencyValue');
 const refreshBtn = document.getElementById('refresh-btn');
+const currentRate = document.getElementById('currentRate');
 
 // 0 - BTC/EUR, 1 - ETH/EUR, 2 - BCH/EUR
 // 3 - BTC/USD, 4 - ETH/USD, 5 - BCH/USD
@@ -82,29 +83,30 @@ function attachListeners() {
 
     buyBtn.addEventListener('click', e => {
         e.preventDefault();
-        resultField.value = calculate('buy');
+        resultField.value = calculateAndChangeRate('buy');
     });
 
     sellBtn.addEventListener('click', e => {
         e.preventDefault();
-        resultField.value = calculate('sell');
+        resultField.value = calculateAndChangeRate('sell');
     });
 }
 
-function calculate(operation) {
-    let result = 0;
+function calculateAndChangeRate(operation) {
+    let rate = 0;
     const currency = currencyValue.value;
     const amount = inputValue.value;
     switch(operation) {
         case 'buy':
-            result = Number(exchanges[currency].buyRate * amount).toFixed(2);
+            rate = exchanges[currency].buyRate;
             break;
         case 'sell':
-            result = Number(exchanges[currency].sellRate * amount).toFixed(2);
+            rate = exchanges[currency].sellRate;
             break;
     }
-
-    return result;
+    const strCurrency = String(currency);
+    currentRate.innerHTML = `${rate} ${strCurrency.substr(strCurrency.length - 3)}`;
+    return Number(rate * amount).toFixed(2);;
 }
 
 // async function getTime() {
