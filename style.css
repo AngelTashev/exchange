@@ -25,11 +25,7 @@ td {
 .eur tbody{
 	background-color: #105789;
 }
-#currency-container {
-	/* width: 70%; */
-	/* left: 0; */
-	/* overflow: scroll; */
-}#calculator-container {
-	/* right: 0; */
-	/* width: 30%; */
+#refresh-btn {
+	height: 70%;
+	margin: 20px;
 }
