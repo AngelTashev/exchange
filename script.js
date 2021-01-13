@@ -43,6 +43,8 @@ async function loadData() {
 
 function generateHTML() {
 
+    let html = '<h4 class="display-4">Current rates</h4>';
+
     html += createTable(exchanges.XXBTZEUR, exchanges.XXBTZUSD, 'BTC');
     html += createTable(exchanges.XETHZEUR, exchanges.XETHZUSD, 'ETH');
     html += createTable(exchanges.XETHZEUR, exchanges.XETHZUSD, 'BCH');
