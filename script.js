@@ -47,7 +47,7 @@ function generateHTML() {
 
     html += createTable(exchanges.XXBTZEUR, exchanges.XXBTZUSD, 'BTC');
     html += createTable(exchanges.XETHZEUR, exchanges.XETHZUSD, 'ETH');
-    html += createTable(exchanges.XETHZEUR, exchanges.XETHZUSD, 'BCH');
+    html += createTable(exchanges.BCHEUR, exchanges.BCHUSD, 'BCH');
 
     return html;
 }
