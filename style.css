@@ -1,0 +1,35 @@
+body {
+	font-family : montserrat, sans-serif !important; 
+	background-color : #333333 !important ;
+	color : #ffffff !important;
+	
+}
+table {
+	/*position : center;*/
+	/* padding-top : 30px ; */
+	font-size : 25px;
+	border-spacing: 0px;
+	color:#ffffff;
+	background-color: #333333 !important;
+}
+.table-dark {
+    color: #fff;
+    background-color: #333333 !important;
+}
+td {
+	text-align: left;
+}
+.usd tbody{
+	background-color: #056d32;
+}
+.eur tbody{
+	background-color: #105789;
+}
+#currency-container {
+	/* width: 70%; */
+	/* left: 0; */
+	/* overflow: scroll; */
+}#calculator-container {
+	/* right: 0; */
+	/* width: 30%; */
+}

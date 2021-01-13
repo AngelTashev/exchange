@@ -1,0 +1,51 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <div class="row">
+        <div id="currency-container" class="container-fluid col-sm-6">
+
+        </div>
+        <div id="calculator-container" class="container-fluid col-sm-4">
+            <h4 class="display-4">Currency Calculator</h1>
+            <form>
+                <div class="form-group">
+                    <label for="inputValue">Amount</label>
+                    <input type="number" class="form-control" id="inputValue"
+                        placeholder="Enter amount">
+                </div>
+                <div class="form-group">
+                    <label for="currencyValue">Currency</label>
+                    <select class="form-control" id="currencyValue">
+                        <option value="XXBTZEUR" selected>BTC - EUR</option>
+                        <option value="XXBTZUSD">BTC - USD</option>
+                        <option value="XETHZEUR">ETH - EUR</option>
+                        <option value="XETHZUSD">ETH - USD</option>
+                        <option value="BCHEUR">BCH - EUR</option>
+                        <option value="BCHUSD">BCH - USD</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <button id="buyBtn" class="btn btn-primary">Buy</button>
+                    <button id="sellBtn" class="btn btn-primary">Sell</button>
+                </div>
+                <div class="form-group">
+                    <input type="number" class="form-control"
+                        placeholder="Result" id="resultField" disabled>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
