@@ -3,8 +3,7 @@ const krakenEndpoint = 'https://api.kraken.com/0/public/';
 const ticker = krakenEndpoint + 'Ticker?pair=XBTEUR,ETHEUR,BCHEUR,XBTUSD,ETHUSD,BCHUSD';
 const time = krakenEndpoint + 'Time';
 const currencyContainer = document.getElementById('info-container');
-const buyBtn = document.getElementById('buyBtn');
-const sellBtn = document.getElementById('sellBtn');
+const convertBtn = document.getElementById('convertBtn');
 const inputValue = document.getElementById('inputValue');
 const resultField = document.getElementById('resultField');
 const currencyValue = document.getElementById('currencyValue');
@@ -16,7 +15,7 @@ const currentRate = document.getElementById('currentRate');
 const exchanges = {};
 
 async function displayInfo() {
-    
+
     await loadData();
     attachListeners();
 
@@ -30,18 +29,18 @@ async function displayInfo() {
 async function loadData() {
 
     await Promise.all([await fetch(ticker).then(res => res.json())])
-    .then(res => {
-        let data = res[0].result;
+        .then(res => {
+            let data = res[0].result;
 
-        for (curr of Object.keys(data)) {
-            const exchangePrice = res[0].result[curr].c[0];
-            const buyRate = Number(exchangePrice * 1.02).toFixed(2);
-            const sellRate = Number(exchangePrice * 0.98).toFixed(2);
+            for (curr of Object.keys(data)) {
+                const exchangePrice = res[0].result[curr].c[0];
+                const buyRate = Number(exchangePrice * 1.02).toFixed(2);
+                const sellRate = Number(exchangePrice * 0.98).toFixed(2);
 
-            exchanges[curr] = { buyRate, sellRate };
-        }
-    });
-    
+                exchanges[curr] = { buyRate, sellRate };
+            }
+        });
+
 }
 
 function generateHTML() {
@@ -81,33 +80,39 @@ function attachRefreshListener() {
 
 function attachListeners() {
 
-    buyBtn.addEventListener('click', e => {
+    convertBtn.addEventListener('click', e => {
         e.preventDefault();
         resultField.value = calculateAndChangeRate('buy');
     });
 
-    sellBtn.addEventListener('click', e => {
-        e.preventDefault();
-        resultField.value = calculateAndChangeRate('sell');
-    });
 }
 
-function calculateAndChangeRate(operation) {
+function calculateAndChangeRate() {
     let rate = 0;
-    const currency = currencyValue.value;
+    let result = 0;
+    let currency = currencyValue.value;
+    const transaction = currency.charAt(0);
+    currency = currency.substring(1);
     const amount = inputValue.value;
-    switch(operation) {
-        case 'buy':
-            rate = exchanges[currency].buyRate;
-            break;
-        case 'sell':
+
+    switch (transaction) {
+        case '0':
             rate = exchanges[currency].sellRate;
+            result = Number(rate * amount).toFixed(2);
+            break;
+        case '1':
+            rate = exchanges[currency].buyRate;
+            result = Number(amount / rate).toFixed(8);
             break;
     }
+
     const strCurrency = String(currency);
     currentRate.innerHTML = `${rate} ${strCurrency.substr(strCurrency.length - 3)}`;
-    return Number(rate * amount).toFixed(2);;
+
+    return result;
+
 }
+
 
 // async function getTime() {
 //     let timeResult = {};

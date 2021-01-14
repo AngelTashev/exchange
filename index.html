@@ -32,17 +32,22 @@
                 <div class="form-group">
                     <label for="currencyValue">Currency</label>
                     <select class="form-control" id="currencyValue">
-                        <option value="XXBTZEUR" selected>BTC - EUR</option>
-                        <option value="XXBTZUSD">BTC - USD</option>
-                        <option value="XETHZEUR">ETH - EUR</option>
-                        <option value="XETHZUSD">ETH - USD</option>
-                        <option value="BCHEUR">BCH - EUR</option>
-                        <option value="BCHUSD">BCH - USD</option>
+                        <option value="0XXBTZEUR" selected>BTC - EUR</option>
+                        <option value="0XXBTZUSD">BTC - USD</option>
+                        <option value="0XETHZEUR">ETH - EUR</option>
+                        <option value="0XETHZUSD">ETH - USD</option>
+                        <option value="0BCHEUR">BCH - EUR</option>
+                        <option value="0BCHUSD">BCH - USD</option>
+                        <option value="1XXBTZEUR" selected>EUR - BTC</option>
+                        <option value="1XXBTZUSD">USD - BTC</option>
+                        <option value="1XETHZEUR">EUR - ETH</option>
+                        <option value="1XETHZUSD">USD - ETH</option>
+                        <option value="1BCHEUR">EUR - BCH</option>
+                        <option value="1BCHUSD">USD - BCH</option>
                     </select>
                 </div>
                 <div class="form-group">
-                    <button id="buyBtn" class="btn btn-primary">Buy</button>
-                    <button id="sellBtn" class="btn btn-primary">Sell</button>
+                    <button id="convertBtn" class="btn btn-primary">Convert</button>
                 </div>
                 <div class="form-group">
                     <input type="number" class="form-control"
