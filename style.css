@@ -2,6 +2,7 @@ body {
 	font-family : montserrat, sans-serif !important; 
 	background-color : #333333 !important ;
 	color : #ffffff !important;
+	overflow-x: hidden;
 	
 }
 table {
