@@ -34,8 +34,8 @@ async function loadData() {
 
             for (curr of Object.keys(data)) {
                 const exchangePrice = res[0].result[curr].c[0];
-                const buyRate = Number(exchangePrice * 1.02).toFixed(2);
-                const sellRate = Number(exchangePrice * 0.98).toFixed(2);
+                const buyRate = Number(exchangePrice * 1.1).toFixed(2);
+                const sellRate = Number(exchangePrice * 0.9).toFixed(2);
 
                 exchanges[curr] = { buyRate, sellRate };
             }
